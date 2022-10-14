@@ -8,17 +8,22 @@ import java.util.Date;
 
 /**
  * @author Yelf
- * @create 2022-10-13-2:01
+ * @create 2022-10-13-14:48
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArticleListVo {
+public class ArticleDetailVo {
     private Long id;
     /**
      * 标题
      */
     private String title;
+
+    /**
+     * 文章内容
+     */
+    private String content;
 
     /**
      * 文章摘要
@@ -40,5 +45,4 @@ public class ArticleListVo {
     private Long viewCount;
 
     private Date createTime;
-
 }

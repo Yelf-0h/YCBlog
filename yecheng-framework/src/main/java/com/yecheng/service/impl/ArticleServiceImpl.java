@@ -11,6 +11,7 @@ import com.yecheng.service.ArticleService;
 import com.yecheng.service.CategoryService;
 import com.yecheng.utils.BeanCopyUtils;
 import com.yecheng.utils.ResponseResult;
+import com.yecheng.vo.ArticleDetailVo;
 import com.yecheng.vo.ArticleListVo;
 import com.yecheng.vo.HotArticleVo;
 import com.yecheng.vo.PageVo;
@@ -81,6 +82,22 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         List<ArticleListVo> articleListVos = BeanCopyUtils.copyBeanList(page.getRecords(), ArticleListVo.class);
         PageVo pageVo = new PageVo(articleListVos,page.getTotal());
         return ResponseResult.okResult(pageVo);
+    }
+
+    @Override
+    public ResponseResult getArticleDetail(Long id) {
+//        根据id查询文章
+        Article article = getById(id);
+//        转换成vo
+        ArticleDetailVo articleDetailVo = BeanCopyUtils.copyBean(article, ArticleDetailVo.class);
+//        根据分类id查询分类名
+        Long categoryId = articleDetailVo.getCategoryId();
+        Category category = categoryService.getById(categoryId);
+        if (Objects.nonNull(category)){
+            articleDetailVo.setCategoryName(category.getName());
+        }
+//        封装响应返回
+        return ResponseResult.okResult(articleDetailVo);
     }
 
 

@@ -10,6 +10,10 @@ spring:
     multipart:
       max-file-size: 2MB
       max-request-size: 5MB
+  redis:
+    database: 0
+    host: 192.168.68.230
+    port: 6379
 mybatis-plus:
   configuration:
     # 日志
@@ -20,3 +24,8 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
       id-type: auto
+oss:
+  accessKey: SBwyhToTy5rc0h_0cnAL4xA8E7y0HlOxqllh9Kub
+  secretKey: sVhbj_P3mZ15HTs2WoFA8pdpISpzILyAZRvjhEQT
+  bucket: yecheng-blog
+  qnCDN: http://rjqffpm8i.hn-bkt.clouddn.com/
