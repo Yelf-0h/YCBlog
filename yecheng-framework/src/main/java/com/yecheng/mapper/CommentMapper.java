@@ -1,7 +1,7 @@
 package com.yecheng.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.yecheng.entity.Comment;
+import com.yecheng.domain.entity.Comment;
 
 /**
  * 评论表(Comment)表数据库访问层

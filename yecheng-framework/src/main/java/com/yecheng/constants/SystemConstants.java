@@ -44,4 +44,5 @@ public class SystemConstants {
      * 评论类型为友链评论
      */
     public static final String LINK_COMMENT = "1";
+    public static final String ARTICLE_VIEWCOUNT_PREFIX = "article:viewCount";
 }

@@ -2,22 +2,20 @@ package com.yecheng.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.yecheng.constants.SystemConstants;
-import com.yecheng.entity.Article;
+import com.yecheng.domain.entity.Article;
 import com.yecheng.service.ArticleService;
 import com.yecheng.utils.BeanCopyUtils;
-import com.yecheng.utils.ResponseResult;
-import com.yecheng.vo.CategoryVo;
-import org.springframework.beans.BeanUtils;
+import com.yecheng.domain.ResponseResult;
+import com.yecheng.domain.vo.CategoryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yecheng.mapper.CategoryMapper;
-import com.yecheng.entity.Category;
+import com.yecheng.domain.entity.Category;
 import com.yecheng.service.CategoryService;
 
 import java.util.List;
 import java.util.Set;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**

@@ -1,8 +1,8 @@
 package com.yecheng.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yecheng.entity.User;
-import com.yecheng.utils.ResponseResult;
+import com.yecheng.domain.entity.User;
+import com.yecheng.domain.ResponseResult;
 
 /**
  * 用户表(User)表服务接口

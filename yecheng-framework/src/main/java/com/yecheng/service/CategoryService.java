@@ -1,8 +1,8 @@
 package com.yecheng.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yecheng.entity.Category;
-import com.yecheng.utils.ResponseResult;
+import com.yecheng.domain.entity.Category;
+import com.yecheng.domain.ResponseResult;
 
 /**
  * 分类表(Category)表服务接口

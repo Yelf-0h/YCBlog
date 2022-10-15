@@ -1,8 +1,8 @@
 package com.yecheng.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yecheng.entity.Comment;
-import com.yecheng.utils.ResponseResult;
+import com.yecheng.domain.entity.Comment;
+import com.yecheng.domain.ResponseResult;
 
 /**
  * 评论表(Comment)表服务接口

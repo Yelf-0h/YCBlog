@@ -1,28 +1,18 @@
-package com.yecheng.vo;
+package com.yecheng.domain.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 /**
  * @author Yelf
- * @create 2022-10-13-15:39
+ * @create 2022-10-13-1:35
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LinkVo {
+public class CategoryVo {
 
     private Long id;
-
     private String name;
-
-    private String logo;
-
-    private String description;
-    //网站地址
-    private String address;
-
 }

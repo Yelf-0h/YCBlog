@@ -3,12 +3,12 @@ package com.yecheng.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.yecheng.constants.SystemConstants;
 import com.yecheng.utils.BeanCopyUtils;
-import com.yecheng.utils.ResponseResult;
-import com.yecheng.vo.LinkVo;
+import com.yecheng.domain.ResponseResult;
+import com.yecheng.domain.vo.LinkVo;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yecheng.mapper.LinkMapper;
-import com.yecheng.entity.Link;
+import com.yecheng.domain.entity.Link;
 import com.yecheng.service.LinkService;
 
 import java.util.List;

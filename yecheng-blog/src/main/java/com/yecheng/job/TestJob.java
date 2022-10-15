@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
  * @author Yelf
  * @create 2022-10-14-21:19
  */
-@Component
-public class TestJob {
-
-    @Scheduled(cron = "0/5 * * * * ?")
-    public void testJob(){
-
-    }
-}
+//@Component
+//public class TestJob {
+//
+//    @Scheduled(cron = "0/5 * * * * ?")
+//    public void testJob(){
+//        System.out.println("定时任务执行了....................");
+//    }
+//}

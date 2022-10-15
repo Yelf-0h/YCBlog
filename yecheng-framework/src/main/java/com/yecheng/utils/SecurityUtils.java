@@ -1,6 +1,6 @@
 package com.yecheng.utils;
 
-import com.yecheng.entity.LoginUser;
+import com.yecheng.domain.entity.LoginUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 

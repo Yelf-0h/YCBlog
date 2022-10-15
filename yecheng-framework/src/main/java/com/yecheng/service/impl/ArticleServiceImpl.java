@@ -4,22 +4,21 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yecheng.constants.SystemConstants;
-import com.yecheng.entity.Category;
+import com.yecheng.domain.entity.Category;
 import com.yecheng.mapper.ArticleMapper;
-import com.yecheng.entity.Article;
+import com.yecheng.domain.entity.Article;
 import com.yecheng.service.ArticleService;
 import com.yecheng.service.CategoryService;
 import com.yecheng.utils.BeanCopyUtils;
-import com.yecheng.utils.ResponseResult;
-import com.yecheng.vo.ArticleDetailVo;
-import com.yecheng.vo.ArticleListVo;
-import com.yecheng.vo.HotArticleVo;
-import com.yecheng.vo.PageVo;
-import org.springframework.beans.BeanUtils;
+import com.yecheng.utils.RedisCache;
+import com.yecheng.domain.ResponseResult;
+import com.yecheng.domain.vo.ArticleDetailVo;
+import com.yecheng.domain.vo.ArticleListVo;
+import com.yecheng.domain.vo.HotArticleVo;
+import com.yecheng.domain.vo.PageVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -35,6 +34,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private RedisCache redisCache;
     @Override
     public ResponseResult hotArticleList() {
         //查询热门文章，封装成ResponseResult返回
@@ -48,6 +49,16 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         page(page,queryWrapper);
 
         List<Article> articles = page.getRecords();
+
+        //获取redis中文章浏览量,设置到articles中
+        articles.stream()
+                .map(article -> {
+                    Integer value = redisCache.getCacheMapValue(SystemConstants.ARTICLE_VIEWCOUNT_PREFIX, article.getId().toString());
+                    article.setViewCount(value.longValue());
+                    return article;
+                }).collect(Collectors.toList());
+
+
         List<HotArticleVo> articleVos = BeanCopyUtils.copyBeanList(articles, HotArticleVo.class);
         return ResponseResult.okResult(articleVos);
     }
@@ -77,6 +88,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         List<Article> articles = page.getRecords();
         articles.stream().map(article -> article.setCategoryName(categoryService.getById(article.getCategoryId()).getName())).collect(Collectors.toList());
 
+        //获取redis中文章浏览量,设置到articles中
+        articles.stream()
+                .map(article -> {
+                    Integer value = redisCache.getCacheMapValue(SystemConstants.ARTICLE_VIEWCOUNT_PREFIX, article.getId().toString());
+                    article.setViewCount(value.longValue());
+                    return article;
+                }).collect(Collectors.toList());
 
         //封装查询结果
         List<ArticleListVo> articleListVos = BeanCopyUtils.copyBeanList(page.getRecords(), ArticleListVo.class);
@@ -88,6 +106,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     public ResponseResult getArticleDetail(Long id) {
 //        根据id查询文章
         Article article = getById(id);
+        //        获取redis中文章浏览量
+
+        Integer value = redisCache.getCacheMapValue(SystemConstants.ARTICLE_VIEWCOUNT_PREFIX, id.toString());
+        if (Objects.nonNull(value)&&value>0){
+            article = article.setViewCount(value.longValue());
+        }
+
 //        转换成vo
         ArticleDetailVo articleDetailVo = BeanCopyUtils.copyBean(article, ArticleDetailVo.class);
 //        根据分类id查询分类名
@@ -96,8 +121,23 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         if (Objects.nonNull(category)){
             articleDetailVo.setCategoryName(category.getName());
         }
+
 //        封装响应返回
         return ResponseResult.okResult(articleDetailVo);
+    }
+
+    @Override
+    public ResponseResult updateViewCount(Long id) {
+//        Map<String, Integer> cacheMap = redisCache.getCacheMap(SystemConstants.ARTICLE_VIEWCOUNT_PREFIX);
+//        Integer integer = cacheMap.get(id);
+//        if (Objects.isNull(integer)){
+//            throw new SystemException(AppHttpCodeEnum.SYSTEM_ERROR);
+//        }
+//        cacheMap.replace(id,integer,integer+1);
+//        redisCache.setCacheMap(SystemConstants.ARTICLE_VIEWCOUNT_PREFIX,cacheMap);
+
+        redisCache.incrementCacheMapValue(SystemConstants.ARTICLE_VIEWCOUNT_PREFIX,id.toString(),1);
+        return ResponseResult.okResult();
     }
 
 

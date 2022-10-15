@@ -2,7 +2,7 @@ package com.yecheng.handler.security;
 
 import com.alibaba.fastjson.JSON;
 import com.yecheng.enums.AppHttpCodeEnum;
-import com.yecheng.utils.ResponseResult;
+import com.yecheng.domain.ResponseResult;
 import com.yecheng.utils.WebUtils;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;

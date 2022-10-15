@@ -1,6 +1,6 @@
 package com.yecheng.service;
 
-import com.yecheng.utils.ResponseResult;
+import com.yecheng.domain.ResponseResult;
 import org.springframework.web.multipart.MultipartFile;
 
 /**

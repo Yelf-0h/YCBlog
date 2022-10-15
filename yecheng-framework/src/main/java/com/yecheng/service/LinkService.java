@@ -1,8 +1,8 @@
 package com.yecheng.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yecheng.entity.Link;
-import com.yecheng.utils.ResponseResult;
+import com.yecheng.domain.entity.Link;
+import com.yecheng.domain.ResponseResult;
 
 /**
  * 友链(Link)表服务接口

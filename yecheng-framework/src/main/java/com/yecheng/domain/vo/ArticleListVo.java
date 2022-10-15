@@ -1,4 +1,4 @@
-package com.yecheng.vo;
+package com.yecheng.domain.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,22 +8,17 @@ import java.util.Date;
 
 /**
  * @author Yelf
- * @create 2022-10-13-14:48
+ * @create 2022-10-13-2:01
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArticleDetailVo {
+public class ArticleListVo {
     private Long id;
     /**
      * 标题
      */
     private String title;
-
-    /**
-     * 文章内容
-     */
-    private String content;
 
     /**
      * 文章摘要
@@ -45,4 +40,5 @@ public class ArticleDetailVo {
     private Long viewCount;
 
     private Date createTime;
+
 }

@@ -2,11 +2,11 @@ package com.yecheng.filter;
 
 import com.alibaba.fastjson.JSON;
 import com.yecheng.constants.SystemConstants;
-import com.yecheng.entity.LoginUser;
+import com.yecheng.domain.entity.LoginUser;
 import com.yecheng.enums.AppHttpCodeEnum;
 import com.yecheng.utils.JwtUtil;
 import com.yecheng.utils.RedisCache;
-import com.yecheng.utils.ResponseResult;
+import com.yecheng.domain.ResponseResult;
 import com.yecheng.utils.WebUtils;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
-import springfox.documentation.spring.web.json.Json;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

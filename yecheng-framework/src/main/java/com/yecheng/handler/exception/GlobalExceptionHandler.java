@@ -2,7 +2,7 @@ package com.yecheng.handler.exception;
 
 import com.yecheng.enums.AppHttpCodeEnum;
 import com.yecheng.exception.SystemException;
-import com.yecheng.utils.ResponseResult;
+import com.yecheng.domain.ResponseResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

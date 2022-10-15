@@ -1,4 +1,4 @@
-package com.yecheng.entity;
+package com.yecheng.domain.entity;
 
 import java.util.Date;
 

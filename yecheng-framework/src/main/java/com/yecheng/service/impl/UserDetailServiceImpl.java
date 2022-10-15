@@ -1,10 +1,9 @@
 package com.yecheng.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.yecheng.entity.LoginUser;
-import com.yecheng.entity.User;
+import com.yecheng.domain.entity.LoginUser;
+import com.yecheng.domain.entity.User;
 import com.yecheng.mapper.UserMapper;
-import com.yecheng.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

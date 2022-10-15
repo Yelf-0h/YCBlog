@@ -1,7 +1,7 @@
 package com.yecheng.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.yecheng.entity.Category;
+import com.yecheng.domain.entity.Category;
 
 /**
  * 分类表(Category)表数据库访问层

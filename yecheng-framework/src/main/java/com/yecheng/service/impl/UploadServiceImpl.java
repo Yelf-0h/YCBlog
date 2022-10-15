@@ -12,7 +12,7 @@ import com.yecheng.enums.AppHttpCodeEnum;
 import com.yecheng.exception.SystemException;
 import com.yecheng.service.UploadService;
 import com.yecheng.utils.PathUtils;
-import com.yecheng.utils.ResponseResult;
+import com.yecheng.domain.ResponseResult;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;

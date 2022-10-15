@@ -7,14 +7,14 @@ import com.yecheng.enums.AppHttpCodeEnum;
 import com.yecheng.exception.SystemException;
 import com.yecheng.service.UserService;
 import com.yecheng.utils.BeanCopyUtils;
-import com.yecheng.utils.ResponseResult;
-import com.yecheng.vo.CommentVo;
-import com.yecheng.vo.PageVo;
+import com.yecheng.domain.ResponseResult;
+import com.yecheng.domain.vo.CommentVo;
+import com.yecheng.domain.vo.PageVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yecheng.mapper.CommentMapper;
-import com.yecheng.entity.Comment;
+import com.yecheng.domain.entity.Comment;
 import com.yecheng.service.CommentService;
 import org.springframework.util.StringUtils;
 

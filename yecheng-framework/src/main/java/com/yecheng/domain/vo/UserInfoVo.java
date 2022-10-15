@@ -1,4 +1,4 @@
-package com.yecheng.vo;
+package com.yecheng.domain.vo;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

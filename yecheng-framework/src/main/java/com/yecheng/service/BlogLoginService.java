@@ -1,7 +1,7 @@
 package com.yecheng.service;
 
-import com.yecheng.entity.User;
-import com.yecheng.utils.ResponseResult;
+import com.yecheng.domain.entity.User;
+import com.yecheng.domain.ResponseResult;
 
 /**
  * 博客登录服务

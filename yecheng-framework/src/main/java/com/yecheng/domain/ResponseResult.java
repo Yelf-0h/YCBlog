@@ -1,4 +1,4 @@
-package com.yecheng.utils;
+package com.yecheng.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.yecheng.enums.AppHttpCodeEnum;

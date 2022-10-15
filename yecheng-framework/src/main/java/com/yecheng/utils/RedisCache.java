@@ -232,6 +232,17 @@ public class RedisCache
     }
 
     /**
+     * 增加缓存映射值
+     *
+     * @param key  关键
+     * @param hKey h键
+     * @param v    v
+     */
+    public void incrementCacheMapValue(String key,String hKey,long v){
+        redisTemplate.boundHashOps(key).increment(hKey, v);
+    }
+
+    /**
      * 获得缓存的基本对象列表
      *
      * @param pattern 字符串前缀
