@@ -26,6 +26,8 @@ public class CommentVo {
     private Long toCommentUserId;
 
     private String toCommentUserName;
+    //所回复的目标评论的头像
+    private String toCommentUserNameAvatar;
     //回复目标评论id
     private Long toCommentId;
 
@@ -34,6 +36,8 @@ public class CommentVo {
     private Date createTime;
 
     private String username;
+    //用户的头像
+    private String usernameAvatar;
 
     private List<CommentVo> children;
 }

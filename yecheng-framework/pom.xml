@@ -88,6 +88,12 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
+        <!-- 引入swagger-bootstrap-ui包 /doc.html-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>1.9.6</version>
+        </dependency>
         <!--七牛云的依赖-->
         <dependency>
             <groupId>com.qiniu</groupId>

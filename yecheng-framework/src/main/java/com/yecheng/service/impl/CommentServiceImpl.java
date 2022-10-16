@@ -91,9 +91,13 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         commentVos = commentVos.stream().map(commentVo -> {
 //        通过createBy查找用户的昵称并赋值给username
             commentVo.setUsername(userService.getById(commentVo.getCreateBy()).getNickName());
+//            设置评论头像链接
+            commentVo.setUsernameAvatar(userService.getById(commentVo.getCreateBy()).getAvatar());
 //        通过toCommentUserId查找用户的昵称并赋值给toCommentUserName
             if (commentVo.getToCommentUserId() != SystemConstants.COMMENT_ROOTID) {
                 commentVo.setToCommentUserName(userService.getById(commentVo.getToCommentUserId()).getNickName());
+//                设置子评论头像链接
+                commentVo.setToCommentUserNameAvatar(userService.getById(commentVo.getToCommentUserId()).getAvatar());
             }
             return commentVo;
         }).collect(Collectors.toList());
