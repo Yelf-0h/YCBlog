@@ -1,15 +1,19 @@
 package com.yecheng.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.yecheng.constants.SystemConstants;
 import com.yecheng.domain.entity.LoginUser;
 import com.yecheng.domain.entity.User;
+import com.yecheng.mapper.MenuMapper;
 import com.yecheng.mapper.UserMapper;
+import com.yecheng.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -21,6 +25,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private MenuMapper menuMapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -33,7 +39,12 @@ public class UserDetailServiceImpl implements UserDetailsService {
             throw new RuntimeException("账号或密码错误！！");
         }
 //        查到之后返回用户信息
-//        TODO 查询权限信息的封装
-        return new LoginUser(user);
+//        查询权限信息的封装
+        if (user.getType().equals(SystemConstants.ADMIN)){
+            List<String> perms = menuMapper.selectPermsByUserId(user.getId());
+            return new LoginUser(user,perms);
+        }
+
+        return new LoginUser(user,null);
     }
 }

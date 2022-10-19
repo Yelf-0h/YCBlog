@@ -5,6 +5,7 @@ import com.yecheng.domain.dto.AddCommentDto;
 import com.yecheng.domain.entity.Comment;
 import com.yecheng.service.CommentService;
 import com.yecheng.domain.ResponseResult;
+import com.yecheng.service.impl.PermissionService;
 import com.yecheng.utils.BeanCopyUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -70,6 +71,7 @@ public class CommentController {
      * @return {@link ResponseResult}
      */
     @GetMapping("/linkCommentList")
+
     @ApiOperation(value = "友链评论列表",notes = "获取一页友链评论列表")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "pageNum",value = "页号"),
@@ -78,4 +80,5 @@ public class CommentController {
     public ResponseResult linkCommentList(Integer pageNum,Integer pageSize){
         return commentService.commentList(SystemConstants.LINK_COMMENT,null,pageNum,pageSize);
     }
+
 }

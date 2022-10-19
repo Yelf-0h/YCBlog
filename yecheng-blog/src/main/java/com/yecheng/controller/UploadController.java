@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 /**
  * @author Yelf
  * @create 2022-10-14-16:11
@@ -28,7 +30,12 @@ public class UploadController {
             @ApiImplicitParam(name = "img",value = "头像图片")
     })
     public ResponseResult uploadImg(MultipartFile img){
+        try {
+            return uploadService.uploadImg(img);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("文件上传上传失败");
+        }
 
-        return uploadService.uploadImg(img);
     }
 }

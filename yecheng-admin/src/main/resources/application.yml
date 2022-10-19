@@ -15,12 +15,20 @@ spring:
     host: 192.168.68.230
     port: 6379
 mybatis-plus:
-  configuration:
+#  configuration:
     # 日志
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
       logic-delete-field: delFlag
       logic-delete-value: 1
       logic-not-delete-value: 0
       id-type: auto
+logging:
+  level:
+    com.yecheng.mapper: debug
+oss:
+  accessKey: SBwyhToTy5rc0h_0cnAL4xA8E7y0HlOxqllh9Kub
+  secretKey: sVhbj_P3mZ15HTs2WoFA8pdpISpzILyAZRvjhEQT
+  bucket: yecheng-blog
+  qnCDN: http://rjqffpm8i.hn-bkt.clouddn.com/

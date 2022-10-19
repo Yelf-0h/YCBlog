@@ -24,6 +24,11 @@ public class SystemConstants {
     public static final int LINK_STATUS_NORMAL = 0;
 
     /**
+     * 用户状态正常
+     */
+    public static final int USER_STATUS_NORMAL = 0;
+
+    /**
      * 存入redis是userinfo的前缀
      */
     public static final String BLOG_LOGIN = "bloglogin:";
@@ -36,6 +41,11 @@ public class SystemConstants {
      * 评论rootid 根评论的rootid为-1
      */
     public static final int COMMENT_ROOTID = -1;
+
+    /**
+     * 类别rootid,根pid为-1
+     */
+    public static final int CATEGORY_PID = -1;
     /**
      * 评论类型为文章评论
      */
@@ -48,4 +58,5 @@ public class SystemConstants {
     public static final String ADMIN_LOGIN = "login:";
     public static final String MENU = "C";
     public static final String BUTTON = "F";
+    public static final String ADMIN = "1";
 }
